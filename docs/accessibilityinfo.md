@@ -118,18 +118,28 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: {queue?: boolean},
+  options: {queue?: boolean, priority?: 'low' | 'default' | 'high'},
 );
 ```
 
-Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+You can pass `queue` and `priority` in the options object.
+
+On iOS, set `queue` to `true` to queue the announcement behind existing speech. The `priority` option applies only on iOS; on Android, the announcement is made without the options.
 
 **Parameters:**
 
-| Name                                                              | Type   | Description                                                                                  |
-| ----------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
-| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                   |
-| options <div className="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div className="label ios">iOS</div> |
+| Name                                                              | Type   | Description |
+| ----------------------------------------------------------------- | ------ | ----------- |
+| announcement <div className="label basic required">Required</div> | string | The announcement to make. |
+| options <div className="label basic required">Required</div>      | object | Accepts optional `queue` (boolean) and `priority` (`'low'`, `'default'`, or `'high'`). |
+
+**Priority values (iOS only):**
+
+| Value | Behavior |
+| ----- | -------- |
+| `'low'` | Does not interrupt ongoing speech and can be interrupted. |
+| `'default'` | Interrupts any ongoing speech but can be interrupted. |
+| `'high'` | Interrupts any ongoing speech and cannot be interrupted. |
 
 ---
 
@@ -240,7 +250,7 @@ Query whether high text contrast is currently enabled. Returns a promise which r
 static isDarkerSystemColorsEnabled(): Promise<boolean>
 ```
 
-Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark system colors is enabled and `false` otherwise.
+Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark text colors is enabled and `false` otherwise.
 
 ---
 
