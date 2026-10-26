@@ -116,6 +116,38 @@ More complex examples of usage can be found in the RNTester app (with `PlatformC
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }`, `{type: 'radial-gradient', shape: string, position: object, size: string, colorStops: object[] }` |
 
+Background images default to `background-origin: padding-box` and `background-clip: border-box`, as on the web.
+
+---
+
+### `backgroundPosition`
+
+Use `backgroundPosition` to position the gradients set by a view's `backgroundImage`.
+
+`backgroundPosition` is now a stable style prop; use it without the `experimental_` prefix.
+
+It accepts a string, or an array of objects that each set `top` or `bottom` together with `left` or `right`, with numbers or strings as values.
+
+---
+
+### `backgroundRepeat`
+
+Use `backgroundRepeat` to repeat the gradients set by a view's `backgroundImage`.
+
+`backgroundRepeat` is now a stable style prop; use it without the `experimental_` prefix.
+
+It accepts a string, or an array of objects with `x` and `y` values, each of which is `'repeat'`, `'space'`, `'round'` or `'no-repeat'`.
+
+---
+
+### `backgroundSize`
+
+Use `backgroundSize` to size the gradients set by a view's `backgroundImage`.
+
+`backgroundSize` is now a stable style prop; use it without the `experimental_` prefix.
+
+It accepts a string, or an array of objects with `x` and `y` values that are numbers or strings.
+
 ---
 
 ### `borderBottomColor`
