@@ -118,18 +118,29 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: {queue?: boolean},
+  options: {
+    queue?: boolean;
+    priority?: 'low' | 'default' | 'high';
+  },
 );
 ```
 
-Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+You can pass `queue` and `priority` in the options object.
+
+On iOS, set `queue` to `true` to queue the announcement behind existing speech. The `priority` option applies on iOS only; on Android, the announcement is made without the options.
+
+The `priority` option accepts these values:
+
+- `'low'`: Does not interrupt ongoing speech and can be interrupted.
+- `'default'`: Interrupts any ongoing speech but can be interrupted.
+- `'high'`: Interrupts any ongoing speech and cannot be interrupted.
 
 **Parameters:**
 
 | Name                                                              | Type   | Description                                                                                  |
 | ----------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
 | announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                   |
-| options <div className="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div className="label ios">iOS</div> |
+| options <div className="label basic required">Required</div>      | object | `queue?: boolean` and `priority?: 'low' \| 'default' \| 'high'`. |
 
 ---
 
