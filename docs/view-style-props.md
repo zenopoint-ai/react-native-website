@@ -118,6 +118,32 @@ More complex examples of usage can be found in the RNTester app (with `PlatformC
 
 ---
 
+### `backgroundPosition`
+
+Applies to the gradients you set with a view's `backgroundImage`.
+
+`backgroundPosition`, `backgroundRepeat`, and `backgroundSize` are stable style props; use these names without the `experimental_` prefix.
+
+Accepts a string or an array of objects that each set `top` or `bottom` together with `left` or `right`, with numbers or strings as values.
+
+---
+
+### `backgroundRepeat`
+
+Applies to the gradients you set with a view's `backgroundImage`.
+
+Accepts a string or an array of objects with `x` and `y` properties, each set to `'repeat'`, `'space'`, `'round'`, or `'no-repeat'`.
+
+---
+
+### `backgroundSize`
+
+Applies to the gradients you set with a view's `backgroundImage`.
+
+Accepts a string or an array of objects with `x` and `y` properties, with numbers or strings as values.
+
+---
+
 ### `borderBottomColor`
 
 | Type               |
